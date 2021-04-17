@@ -9,7 +9,7 @@ import { RiLogoutCircleRLine } from 'react-icons/ri';
 const NavBar = () => {
 
     const { user, setUser } = useContext(Context);
-    const { isSignedIn, name } = user;
+    const { isSignedIn, name, role } = user;
 
     const handleSignOut = () => {
         // console.log('Sign out clicked');
@@ -22,6 +22,7 @@ const NavBar = () => {
                     name: '',
                     email: '',
                 };
+                localStorage.removeItem('user');
                 setUser(signedOutUser);
                 // console.log(res);
             })
@@ -50,12 +51,13 @@ const NavBar = () => {
                     <li className="nav-item active">
                         <Link className="nav-link mr-4" to="/">Home</Link>
                     </li>
-                    <li className="nav-item active">
-                        <Link className="nav-link mr-5" to="/dashboard">Dashboard</Link>
-                    </li>
-                    <li className="nav-item active">
-                        <Link className="nav-link mr-4" to="/dashboard">Admin</Link>
-                    </li>
+                    {role === 'admin' ? <li className="nav-item active">
+                        <Link className="nav-link mr-5" to="/admin/dashboard/order">Admin Dashboard</Link>
+                    </li> : <li className="nav-item active">
+                        <Link className="nav-link mr-4" to="/user/dashboard/order">Dashboard</Link>
+                    </li>}
+
+
                     <li className="nav-item active">
                         <Link className="nav-link mr-4" to="#">Blogs</Link>
                     </li>

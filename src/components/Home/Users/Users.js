@@ -6,7 +6,7 @@ const Users = () => {
 
     const onSubmit = (user) => {
 
-        fetch('http://localhost:4000/addUser', {
+        fetch('http://localhost:5000/addUser', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)

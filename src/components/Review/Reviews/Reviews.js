@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
 import SingleReview from "../SingleReview/SingleReview";
+import Slider from "react-slick";
+
+const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+};
 
 const Reviews = () => {
     const [reviews, SetReviews] = useState([]);
@@ -8,6 +17,7 @@ const Reviews = () => {
         fetch("http://localhost:5000/getReviews")
             .then(res => res.json())
             .then(getReviews => {
+                console.log(getReviews)
                 SetReviews(getReviews.slice(0, 6));
             });
     }, []);
@@ -26,9 +36,12 @@ const Reviews = () => {
                 </h3>
 
                 <div className='row justify-content-around'>
-                    {reviews.map(review => (
-                        <SingleReview key={review._id} review={review} />
-                    ))}
+                    <Slider {...settings}>
+
+                        {reviews.map(review => (
+                            <SingleReview key={review._id} reviews={review} />
+                        ))}
+                    </Slider>
                 </div>
             </div>
         </section>

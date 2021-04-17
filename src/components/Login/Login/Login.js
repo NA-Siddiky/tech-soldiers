@@ -5,6 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from '../../Login/FirebaseConfig/firebase.config';
 import { FcGoogle } from 'react-icons/fc';
+import axios from 'axios';
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
@@ -28,7 +29,15 @@ const Login = () => {
                     isSignedIn: true,
                     name: displayName,
                     email: email,
+                    role: 'user'
                 };
+                axios.post('http://localhost:5000/addUser', signedInUser).then((res) => {
+                    localStorage.setItem('user', JSON.stringify(res.data));
+                    console.log(res.data);
+                    setUser(res.data);
+                    history.replace(from);
+                })
+                console.log(result);
                 setUser(signedInUser);
                 history.replace(from);
             })

@@ -15,17 +15,33 @@ const AddServices = () => {
     const onSubmit = (data) => {
         console.log(service);
 
-        const url = "http://localhost:5000/addServices";
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(service)
-        })
-            .then(res => console.log('server side response', res))
-        toast.success('Added Successfully');
+        const imageData = new FormData();
+        imageData.set('key', 'bc1891d9e3a9ddc7763a8b1ba4e7c6bd');
+        imageData.append('image', service.image);
 
+        axios.post('https://api.imgbb.com/1/upload',
+            imageData)
+            .then(function (response) {
+                const image = (service.image = response.data.data.display_url);
+                setServices({ ...service, image });
+
+                const url = "http://localhost:5000/addServices";
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(service)
+                })
+                    .then(res => {
+                        console.log('server side response', res)
+                        toast.success('Added Successfully');
+                    })
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         data.preventDefault();
     };
 
@@ -42,29 +58,36 @@ const AddServices = () => {
         } else if (e.target.name === 'price') {
             const price = (service.price = e.target.value);
             setServices({ ...service, price });
+        } else if (e.target.name === 'image') {
+            const image = (service.image = e.target.files[0]);
+            setServices({ ...service, image });
+        } else if (e.target.name === 'type') {
+            const type = (service.type = e.target.value);
+            setServices({ ...service, type });
         }
+        console.log(service);
     };
 
 
 
 
-    const handleImageUpload = event => {
-        // console.log(event.target.files[0])
-        const imageData = new FormData();
-        imageData.set('key', 'bc1891d9e3a9ddc7763a8b1ba4e7c6bd');
-        imageData.append('image', event.target.files[0]);
+    // const handleImageUpload = event => {
+    //     // console.log(event.target.files[0])
+    //     const imageData = new FormData();
+    //     imageData.set('key', 'bc1891d9e3a9ddc7763a8b1ba4e7c6bd');
+    //     imageData.append('image', event.target.files[0]);
 
-        axios.post('https://api.imgbb.com/1/upload',
-            imageData)
-            .then(function (response) {
-                const url = (service.url = response.data.data.display_url);
-                setServices({ ...service, url });
-                setIMageURL(response.data.data.display_url);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
+    //     axios.post('https://api.imgbb.com/1/upload',
+    //         imageData)
+    //         .then(function (response) {
+    //             const url = (service.url = response.data.data.display_url);
+    //             setServices({ ...service, url });
+    //             setIMageURL(response.data.data.display_url);
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // }
 
 
 
@@ -89,11 +112,20 @@ const AddServices = () => {
                         <Form.Label>Add Price</Form.Label>
                         <Form.Control type="string" placeholder="Enter price" name="price" onChange={(e) => handleAddServices(e)} />
                     </Form.Group>
+                    <Form.Group as={Col} controlId="formGridState">
+                        <Form.Label>Type</Form.Label>
+                        <Form.Control as="select" defaultValue="Choose..." name='type' onChange={(e) => handleAddServices(e)}>
+                            <option value="web_design">Web Design </option>
+                            <option value="domain_hosting">Domain Hosting</option>
+                            <option value='software_development'>Software Development</option>
+                            <option value='itinfrastructure'>IT Infrastructure</option>
 
+                        </Form.Control>
+                    </Form.Group>
                     <Form.Group as={Col} controlId="formGridPassword">
                         <Form.File id="formcheck-api-regular">
                             <Form.File.Label>Add Cover Photo</Form.File.Label>
-                            <Form.File.Input onChange={handleImageUpload} />
+                            <Form.File.Input name="image" onChange={handleAddServices} />
                         </Form.File>
 
                     </Form.Group>

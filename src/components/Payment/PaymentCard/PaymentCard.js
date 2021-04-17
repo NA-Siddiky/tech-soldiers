@@ -1,7 +1,6 @@
 import React from 'react'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+
 
 
 const cardOptions = {
@@ -19,7 +18,7 @@ const cardOptions = {
     },
 };
 
-function PaymentCard() {
+function PaymentCard({ checkoutBtn }) {
 
     const stripe = useStripe();
     const elements = useElements();
@@ -27,7 +26,7 @@ function PaymentCard() {
     const handleSubmit = async (event) => {
         // Block native form submission.
         event.preventDefault();
-
+        console.log('call');
         if (!stripe || !elements) {
             return;
         }
@@ -43,31 +42,16 @@ function PaymentCard() {
             console.log('[error]', error);
         } else {
             console.log('[PaymentMethod]', paymentMethod);
-            try {
-                const { id } = paymentMethod;
-                const response = await axios.post(`http://localhost:5000`, {
-                    amount: 1000,
-                    id,
-                });
-                if (response.status === 200) {
-                    console.log(response);
-                }
-            } catch (err) {
-                console.log(err);
-            }
+            checkoutBtn()
         }
     };
-    const alertFunction = () => {
-        alert("Payment successful, Please continue shopping")
-    }
+
 
     return (
         <div className="container mt-5">
             <form onSubmit={handleSubmit}>
                 <CardElement options={cardOptions} />
-                <Link to={"/"}>
-                    <button onClick={() => alertFunction()} type="submit" className="btn btn-primary mt-3" disabled={!stripe}>Pay</button>
-                </Link>
+                <button type="submit" className="btn btn-primary mt-3" disabled={!stripe}>Pay</button>
             </form>
         </div>
     )

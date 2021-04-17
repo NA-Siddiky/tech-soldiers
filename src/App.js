@@ -11,10 +11,17 @@ import Login from './components/Login/Login/Login';
 import AddServices from './components/Admin/AddServices/AddServices';
 import Checkout from './components/Home/Checkout/Checkout';
 import PaymentCard from './components/Payment/PaymentCard/PaymentCard';
-
+import UserDashboard from './components/UserDashboard/UserDashboard';
+import NavBar from './components/Shared/NavBar/NavBar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import AdminDashboard from './components/AdminDashboard/AdminDashboard';
+import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 function App() {
   return (
     <Router>
+      <NavBar />
+      <ToastContainer />
       <Switch>
         <Route exact path="/">
           <Home></Home>
@@ -28,12 +35,19 @@ function App() {
         <Route path="/addServices">
           <AddServices></AddServices>
         </Route>
-        <Route path="/checkout/:id">
+        <PrivateRoute path="/checkout/:id">
           <Checkout></Checkout>
-        </Route>
-        <Route path="/payment">
+        </PrivateRoute>
+
+        <PrivateRoute path="/payment">
           <PaymentCard></PaymentCard>
-        </Route>
+        </PrivateRoute>
+        <PrivateRoute path="/user/dashboard">
+          <UserDashboard />
+        </PrivateRoute>
+        <PrivateRoute path="/admin/dashboard">
+          <AdminDashboard />
+        </PrivateRoute>
 
       </Switch>
     </Router>

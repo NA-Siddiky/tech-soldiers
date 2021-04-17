@@ -34,18 +34,22 @@ const Checkout = () => {
 
     const checkoutBtn = () => {
         const orderInfo = {
-            bookName: name,
+            serviceName: name,
             price: price,
             email: email,
             quantity: 1,
             imgUrl: url,
             date: new Date(),
+            status: 'pending'
         };
+        console.log(user);
+        console.log(orderInfo);
         // console.log(orderInfo);
         axios.post('http://localhost:5000/saveorder', orderInfo).then((res) => {
             // console.log(res);
             toast.success('Checkout Successfully');
             history.push("/")
+            console.log('call');
         });
     };
 
@@ -80,7 +84,7 @@ const Checkout = () => {
 
 
                     {
-                        payment && <Elements stripe={stripePromise}><PaymentCard></PaymentCard> </Elements>
+                        payment && <Elements stripe={stripePromise}><PaymentCard checkoutBtn={checkoutBtn}></PaymentCard> </Elements>
                     }
 
 
