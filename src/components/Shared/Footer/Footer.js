@@ -102,7 +102,7 @@ const Footer = () => {
                     <div className="row">
                         <div className="col-xl-6 col-lg-6 text-center text-lg-left">
                             <div className="copyright-text">
-                                <p>Copyright {(new Date()).getFullYear()} All Rights Reserved. En-Touch Communication</p>
+                                <p>Copyright {(new Date()).getFullYear()} All Rights Reserved. Tech Soldiers</p>
                             </div>
                         </div>
                         <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">

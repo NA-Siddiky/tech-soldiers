@@ -31,7 +31,7 @@ const Login = () => {
                     email: email,
                     role: 'user'
                 };
-                axios.post('http://localhost:5000/addUser', signedInUser).then((res) => {
+                axios.post('https://techsoldiers.herokuapp.com/addUser', signedInUser).then((res) => {
                     localStorage.setItem('user', JSON.stringify(res.data));
                     console.log(res.data);
                     setUser(res.data);

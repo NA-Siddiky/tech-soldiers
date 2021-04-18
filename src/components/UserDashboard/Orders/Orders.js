@@ -10,7 +10,7 @@ function Orders() {
   const { email } = user;
   useEffect(() => {
     const getAllOrders = async () => {
-      const fetchOrders = await axios.get(`http://localhost:5000/orderByEmail/${email}`);
+      const fetchOrders = await axios.get(`https://techsoldiers.herokuapp.com/orderByEmail/${email}`);
       setAllOrders(fetchOrders.data);
       console.log(fetchOrders);
     }

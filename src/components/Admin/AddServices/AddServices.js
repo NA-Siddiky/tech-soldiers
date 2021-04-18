@@ -25,7 +25,7 @@ const AddServices = () => {
                 const image = (service.image = response.data.data.display_url);
                 setServices({ ...service, image });
 
-                const url = "http://localhost:5000/addServices";
+                const url = "https://techsoldiers.herokuapp.com/addServices";
                 fetch(url, {
                     method: 'POST',
                     headers: {

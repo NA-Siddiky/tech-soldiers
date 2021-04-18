@@ -6,7 +6,7 @@ function Orders() {
   const [allOrders, setAllOrders] = useState([]);
   useEffect(() => {
     const getAllOrders = async () => {
-      const fetchOrders = await axios.get(`http://localhost:5000/getOrders`);
+      const fetchOrders = await axios.get(`https://techsoldiers.herokuapp.com/getOrders`);
       setAllOrders(fetchOrders.data);
       console.log(fetchOrders);
     }
@@ -14,7 +14,7 @@ function Orders() {
   }, [])
   const updateOrder = async (id, status) => {
     try {
-      await axios.post(`http://localhost:5000/orderStatus/${id}`, { status });
+      await axios.post(`https://techsoldiers.herokuapp.com/orderStatus/${id}`, { status });
 
     } catch (err) {
       console.log(err);

@@ -1,5 +1,6 @@
 import React from 'react';
-import featuresImg from '../../../images/image2.png'
+import featuresImg1 from '../../../images/image2.png'
+import featuresImg2 from '../../../images/image2.png'
 import './SpecialFeatures.css'
 import Slider from "react-slick";
 
@@ -18,7 +19,7 @@ const SpecialFeatures = () => {
                 <div className="container mb-5" >
                     <div className="row mb-5">
                         <div className="col-md-5 mb-4 m-md-0">
-                            <img className="img-fluid" src={featuresImg} alt="" />
+                            <img className="img-fluid" src={featuresImg1} alt="" />
                         </div>
                         <div className="col-md-7 align-self-center">
                             <h1>Exceptional BroadBand SPECIAL SERVICE, On Our Team</h1>
@@ -34,7 +35,7 @@ const SpecialFeatures = () => {
                 <div className="container mb-5">
                     <div className="row mb-5">
                         <div className="col-md-5 mb-4 m-md-0">
-                            <img className="img-fluid" src={featuresImg} alt="" />
+                            <img className="img-fluid" src={featuresImg2} alt="" />
                         </div>
                         <div className="col-md-7 align-self-center">
                             <h1>Exceptional BroadBand SPECIAL SERVICE, On Our Team</h1>
