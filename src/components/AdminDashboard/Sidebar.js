@@ -17,6 +17,9 @@ function Sidebar() {
         <Link to='/admin/dashboard/adminForm' className='my-3 btn btn-primary'>
           Add Admin Form
         </Link>
+        <Link to='/admin/dashboard/service' className='my-3 btn btn-primary'>
+          Services
+        </Link>
       </ul>
     </div>
   )

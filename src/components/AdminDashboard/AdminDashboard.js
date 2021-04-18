@@ -4,6 +4,7 @@ import AddServices from '../Admin/AddServices/AddServices'
 import AddAdmin from './AddAdmin/AddAdmin'
 import AdminForm from './AdminForm/AdminForm'
 import Orders from './Orders/Orders'
+import Services from './Services/Services'
 import Sidebar from './Sidebar'
 
 function AdminDashboard() {
@@ -27,6 +28,9 @@ function AdminDashboard() {
             </Route>
             <Route path='/admin/dashboard/adminForm'>
               <AdminForm />
+            </Route>
+            <Route path='/admin/dashboard/service'>
+              <Services />
             </Route>
           </Switch>
         </div>
