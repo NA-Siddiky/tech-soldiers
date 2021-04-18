@@ -13,7 +13,10 @@ const Service = ({ service }) => {
                 <Card.Body>
                     <Card.Title>{service.name}, {service.type}</Card.Title>
                     <Card.Text>agent: {service.agent}</Card.Text>
-                    <h5>Price: ৳ {service.price}<Link to={`/checkout/${service._id}`}><Button variant="primary">Buy Now</Button></Link></h5>
+                    <h5 style={{
+                        display: "flex",
+                        justifyContent: "space-between"
+                    }}>Price: ৳ {service.price}<Link to={`/checkout/${service._id}`}><Button variant="primary">Buy Now</Button></Link></h5>
                 </Card.Body>
             </Card>
         </div>
