@@ -65,16 +65,16 @@ const Footer = () => {
                                     <h3>Useful Links</h3>
                                 </div>
                                 <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">about</a></li>
-                                    <li><a href="#">services</a></li>
-                                    <li><a href="#">portfolio</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Our Services</a></li>
-                                    <li><a href="#">Expert Team</a></li>
-                                    <li><a href="#">Contact us</a></li>
-                                    <li><a href="#">Latest News</a></li>
+                                    <li>Home</li>
+                                    <li>about</li>
+                                    <li>services</li>
+                                    <li>portfolio</li>
+                                    <li>Contact</li>
+                                    <li>About us</li>
+                                    <li>Our Services</li>
+                                    <li>Expert Team</li>
+                                    <li>Contact us</li>
+                                    <li>Latest News</li>
                                 </ul>
                             </div>
                         </div>
@@ -108,11 +108,11 @@ const Footer = () => {
                         <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">
                             <div className="footer-menu">
                                 <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Terms</a></li>
-                                    <li><a href="#">Privacy</a></li>
-                                    <li><a href="#">Policy</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li>Home</li>
+                                    <li>Terms</li>
+                                    <li>Privacy</li>
+                                    <li>Policy</li>
+                                    <li>Contact</li>
                                 </ul>
                             </div>
                         </div>

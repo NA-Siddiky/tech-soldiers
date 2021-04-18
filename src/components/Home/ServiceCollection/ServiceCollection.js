@@ -13,14 +13,17 @@ const ServiceCollection = () => {
     }, []);
 
     return (
+        <>
+            <h1 className="text-center ">All Services</h1>
+            <div className="container d-flex flex-wrap mt-5">
 
-        <div className="container d-flex flex-wrap">
-            {
-                services.map((service) => (
-                    <Service key={service._id} service={service}></Service>
-                ))
-            }
-        </div>
+                {
+                    services.map((service) => (
+                        <Service key={service._id} service={service}></Service>
+                    ))
+                }
+            </div>
+        </>
     );
 };
 

@@ -11,7 +11,7 @@ function AdminDashboard() {
   return (
     <div>
       <div className="row g-0">
-        <div className="col-md-3">
+        <div className="col-md-3" style={{ backgroundColor: '#cecece', height: '94vh' }}>
           <Sidebar />
         </div>
         <div className="col-md-9">
