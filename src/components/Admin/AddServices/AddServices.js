@@ -52,9 +52,9 @@ const AddServices = () => {
         if (e.target.name === 'service') {
             const name = (service.name = e.target.value);
             setServices({ ...service, name });
-        } else if (e.target.name === 'author') {
-            const author = (service.author = e.target.value);
-            setServices({ ...service, author });
+        } else if (e.target.name === 'agent') {
+            const agent = (service.agent = e.target.value);
+            setServices({ ...service, agent });
         } else if (e.target.name === 'price') {
             const price = (service.price = e.target.value);
             setServices({ ...service, price });
@@ -81,7 +81,7 @@ const AddServices = () => {
 
                     <Form.Group as={Col} controlId="formGridPassword">
                         <Form.Label>Service Agency</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Name" name="author" onChange={(e) => handleAddServices(e)} />
+                        <Form.Control type="text" placeholder="Enter Name" name="agent" onChange={(e) => handleAddServices(e)} />
                     </Form.Group>
                 </Form.Row>
 

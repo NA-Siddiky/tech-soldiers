@@ -2,11 +2,11 @@ import React from 'react'
 
 
 function Service({ deleteService, service }) {
-  const { author, image, price, type, _id } = service
+  const { agent, image, price, type, _id } = service
   return (
     <tr>
       <th scope="row"><img src={image} alt="" style={{ height: '75px' }} /></th>
-      <th scope="row">{author}</th>
+      <th scope="row">{agent}</th>
       <th scope="row">{price}</th>
       <th scope="row">{price}</th>
       <th scope="row">{type}</th>
