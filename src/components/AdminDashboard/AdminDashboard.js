@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router'
 import AddServices from '../Admin/AddServices/AddServices'
 import AddAdmin from './AddAdmin/AddAdmin'
+import AdminForm from './AdminForm/AdminForm'
 import Orders from './Orders/Orders'
 import Sidebar from './Sidebar'
 
@@ -23,6 +24,9 @@ function AdminDashboard() {
             </Route>
             <Route path='/admin/dashboard/addadmin'>
               <AddAdmin />
+            </Route>
+            <Route path='/admin/dashboard/adminForm'>
+              <AdminForm />
             </Route>
           </Switch>
         </div>

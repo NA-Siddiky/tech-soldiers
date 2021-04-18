@@ -12,7 +12,10 @@ function Sidebar() {
           Add Service
         </Link>
         <Link to='/admin/dashboard/addadmin' className='my-3 btn btn-primary'>
-          Add Admin
+          Manage User
+        </Link>
+        <Link to='/admin/dashboard/adminForm' className='my-3 btn btn-primary'>
+          Add Admin Form
         </Link>
       </ul>
     </div>
