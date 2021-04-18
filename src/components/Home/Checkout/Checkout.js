@@ -93,11 +93,7 @@ const Checkout = () => {
                 <div className="col-md-4">
                     <img style={{ width: '200px' }} src={service.image} alt="" />
                     <h5>{service.name}</h5>
-<<<<<<< HEAD
-                    <h6>Agency: {service.agent}</h6>
-=======
                     <h6>agent: {service.agent}</h6>
->>>>>>> c2e5f010dbd4cc90984775b4474433806b0a7009
                     <h5>Price: ৳{service.price}</h5>
                     <h3>Please confirm your Order.</h3>
                 </div>
