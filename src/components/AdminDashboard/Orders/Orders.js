@@ -12,6 +12,14 @@ function Orders() {
     }
     getAllOrders();
   }, [])
+  const updateOrder = async (id, status) => {
+    try {
+      await axios.post(`http://localhost:5000/orderStatus/${id}`, { status });
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
     <div>
       <table class="table">
@@ -23,10 +31,12 @@ function Orders() {
             <th scope="col">Price</th>
             <th scope="col">Status</th>
             <th scope="col">Quantity</th>
+            <th scope="col">Action</th>
+
           </tr>
         </thead>
         <tbody>
-          {allOrders.map((order) => <Order order={order} />)}
+          {allOrders.map((order) => <Order order={order} updateOrder={updateOrder} />)}
         </tbody>
       </table>
     </div>
