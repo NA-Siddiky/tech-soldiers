@@ -32,7 +32,7 @@ const Reviews = () => {
                         marginBottom: "3rem",
                         color: "#171B4E",
                     }}>
-                    Client <span style={{ color: "#7AB259" }}>Feedback</span>{" "}
+                    Client <span style={{ color: "#7AB259" }}>Reviews</span>{" "}
                 </h3>
 
                 <div className='row justify-content-around'>
