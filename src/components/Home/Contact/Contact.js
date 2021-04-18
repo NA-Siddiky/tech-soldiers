@@ -4,10 +4,10 @@ import './Contact.css'
 const Contact = () => {
     return (
         <section >
-            <div class="contact-main">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="row">
+            <div class="contact-main container d-block m-auto">
+                <div class="row py-4">
+                    <div class="col-sm-12 ">
+                        <div class="row justify-content-center">
                             <div class="col-sm-8 col-sm-offset-2">
                                 <div>
                                     <h2>CONTACT US</h2>
