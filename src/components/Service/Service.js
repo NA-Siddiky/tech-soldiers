@@ -18,6 +18,7 @@ const Service = () => {
       .then(res => res.json())
       .then(getServices => {
         SetServices(getServices.slice(0, 6));
+        console.log(getServices)
       });
   }, []);
 
