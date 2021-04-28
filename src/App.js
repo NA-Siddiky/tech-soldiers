@@ -17,6 +17,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
+
 function App() {
   return (
     <Router>
